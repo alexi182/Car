@@ -1,0 +1,17 @@
+const INIT = 'INIT';
+const COPY_FIRST = 'COPY_FIRST';
+const COPY_LAST = 'COPY_LAST';
+const REMOVE_FIRST = 'REMOVE_FIRST';
+const REMOVE_LAST = 'REMOVE_LAST';
+const VIEW_LIST = 'VIEW_LIST';
+const VIEW_CARD = 'VIEW_CARD';
+
+export {
+   INIT,
+   COPY_FIRST,
+   COPY_LAST,
+   REMOVE_FIRST,
+   REMOVE_LAST,
+   VIEW_LIST,
+   VIEW_CARD
+};

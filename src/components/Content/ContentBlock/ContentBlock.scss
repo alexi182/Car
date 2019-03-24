@@ -1,0 +1,19 @@
+.content-list {
+   width: 100%;
+   border: 1px solid grey;
+   margin-bottom: 10px;
+   padding: 10px 20px;
+
+   &__top {
+      display: flex;
+      justify-content: space-between;
+   }
+
+   &__attributes {
+      display: flex;
+   }
+}
+
+.content-card {
+
+}
