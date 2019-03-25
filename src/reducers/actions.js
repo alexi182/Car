@@ -7,7 +7,6 @@ export default function actionReducers(state = { data: loadData }, action) {
    switch (action.type) {
 
       case constants.COPY_FIRST: {
-
          updatedList = [...state.data.data];
 
          console.log(updatedList);
@@ -18,13 +17,25 @@ export default function actionReducers(state = { data: loadData }, action) {
 
          updatedList.unshift(lastElement[0]);
 
-         state = {...state, data: updatedList }
-         break;
+         return state = {...state, data: updatedList };
+      }
+
+      case constants.COPY_LAST: {
+         updatedList = [...state.data.data];
+
+         console.log(updatedList);
+
+         let firstElement = updatedList.slice(updatedList.indexOf(updatedList[0]));
+
+         console.log(firstElement[0]);
+
+         updatedList.unshift(firstElement[0]);
+
+         return state = {...state, data: updatedList };
       }
 
       default:
          return state;
    }
-   return state;
 }
 

@@ -1,11 +1,11 @@
 import ContentBlock from './ContentBlock/ContentBlock';
 import './Content.scss';
-import * as actions from '../../actions/actions';
-import { connect } from 'react-redux';
+/*import * as actions from '../../actions/actions';
+import { connect } from 'react-redux';*/
 
-@connect( store => {
+/*@connect( store => {
    return store.actions;
-})
+})*/
 
 class Content extends React.Component {
    constructor(props) {
@@ -34,7 +34,7 @@ class Content extends React.Component {
 
    render() {
 
-      let {data} = this.props.data
+      let {data} = this.props.data.data;
 
       return (
           <div className="content">
@@ -52,23 +52,5 @@ class Content extends React.Component {
 }
 
 
-const mapStateToProps = state => {
-   return {
-      cartItems: state.cart,
-      cartItemCount: state.cart.reduce((count, curItem) => {
-         return count + curItem.quantity;
-      }, 0)
-   };
-};
-
-const mapDispatchToProps = dispatch => {
-   return {
-      removeProductFromCart: id => dispatch(removeProductFromCart(id))
-   };
-};
-
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(Content);
+export default Content
 

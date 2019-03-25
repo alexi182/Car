@@ -3,31 +3,27 @@ import * as constants from '../constants/actions';
 function copyFirst() {
    let action = {
       type: constants.COPY_FIRST,
-      payload: ''
    };
    return action;
 }
 
-function copyLast(id) {
+function copyLast() {
    let action = {
       type: constants.COPY_LAST,
-      payload: id
    };
    return action;
 }
 
-function removeFirst(id) {
+function removeFirst() {
    let action = {
       type: constants.REMOVE_FIRST,
-      payload: id
    };
    return action;
 }
 
-function removeLast(id) {
+function removeLast() {
    let action = {
       type: constants.REMOVE_LAST,
-      payload: id
    };
    return action;
 }
@@ -35,7 +31,6 @@ function removeLast(id) {
 function viewList() {
    let action = {
       type: constants.VIEW_LIST,
-      payload: ''
    };
    return action;
 }
@@ -43,7 +38,6 @@ function viewList() {
 function viewCard() {
    let action = {
       type: constants.VIEW_CARD,
-      payload: ''
    };
    return action;
 }

@@ -1,17 +1,14 @@
 import './ActionsBar.scss';
-import * as actions from '../../actions/actions';
-import { connect } from 'react-redux';
-
-@connect( store => {
-  return store.actions;
-})
 
 class ActionsBar extends React.Component {
 
-  copyFirst = () => {
-    let toDispatch = actions.copyFirst();
-    this.props.dispatch(toDispatch);
-  }
+   copyFirst = () => {
+      this.props.copyFirst()
+   }
+
+   copyLast = () => {
+      this.props.copyLast()
+   }
 
    render() {
 
@@ -30,13 +27,9 @@ class ActionsBar extends React.Component {
                 Удалить последний
              </button>
 
-
-
-
           </div>
       )
    }
 }
-
 
 export default ActionsBar
