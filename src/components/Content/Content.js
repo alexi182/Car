@@ -7,7 +7,6 @@ import { connect } from 'react-redux';
    return store.actions;
 })
 
-
 class Content extends React.Component {
    constructor(props) {
       super(props);
@@ -28,10 +27,10 @@ class Content extends React.Component {
    //    });
    // }
 
-   componentDidMount() {
-      let action = actions.init();
-      this.props.dispatch(action);
-   }
+   // componentDidMount() {
+   //    let action = actions.init();
+   //    this.props.dispatch(action);
+   // }
 
    render() {
 
@@ -52,4 +51,24 @@ class Content extends React.Component {
    }
 }
 
-export default Content
+
+const mapStateToProps = state => {
+   return {
+      cartItems: state.cart,
+      cartItemCount: state.cart.reduce((count, curItem) => {
+         return count + curItem.quantity;
+      }, 0)
+   };
+};
+
+const mapDispatchToProps = dispatch => {
+   return {
+      removeProductFromCart: id => dispatch(removeProductFromCart(id))
+   };
+};
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(Content);
+

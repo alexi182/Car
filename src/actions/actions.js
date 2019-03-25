@@ -1,18 +1,9 @@
 import * as constants from '../constants/actions';
-import loadData from '../../data.json'
 
-function init() {
-   let data = {
-      type: constants.INIT,
-      payload: loadData
-   };
-   return data;
-}
-
-function copyFirst(id) {
+function copyFirst() {
    let action = {
       type: constants.COPY_FIRST,
-      payload: id
+      payload: ''
    };
    return action;
 }
@@ -58,7 +49,6 @@ function viewCard() {
 }
 
 export {
-   init,
    copyFirst,
    copyLast,
    removeFirst,

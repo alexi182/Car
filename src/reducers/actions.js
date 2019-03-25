@@ -1,31 +1,26 @@
 import * as constants from '../constants/actions';
+import loadData from '../../data.json'
 
-export default function actionReducers(state = { data: [] }, action) {
+export default function actionReducers(state = { data: loadData }, action) {
+   let updatedList;
 
    switch (action.type) {
 
-      case constants.INIT: {
-         state = { ...state, data: action.payload }
+      case constants.COPY_FIRST: {
+
+         updatedList = [...state.data.data];
+
+         console.log(updatedList);
+
+         let lastElement = updatedList.slice(updatedList.indexOf(updatedList[updatedList.length - 1]));
+
+         console.log(lastElement[0]);
+
+         updatedList.unshift(lastElement[0]);
+
+         state = {...state, data: updatedList }
          break;
       }
-
-      // case constants.SEARCH: {
-      //
-      //    let val = action.payload.toLowerCase();
-      //    let people;
-      //
-      //    if (val.length > 0) {
-      //       people = state._people.filter((p) =>
-      //           p.name.toLowerCase().indexOf(val) !== -1 ||
-      //           p.surname.toLowerCase().indexOf(val) !== -1 ||
-      //           p.age.toString().toLowerCase().indexOf(val) !== -1 )
-      //    } else {
-      //       people = state._people;
-      //    }
-      //
-      //    state = { ...state, people };  ///...state - берём старый state(который в начале задане)
-      //    break;
-      // }
 
       default:
          return state;
