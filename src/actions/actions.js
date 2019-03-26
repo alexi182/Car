@@ -1,18 +1,12 @@
 import * as constants from '../constants/actions';
 
-function copyFirst() {
-   let action = {
-      type: constants.COPY_FIRST,
-   };
-   return action;
-}
+const copyFirst = () => ({
+   type: constants.COPY_FIRST,
+});
 
-function copyLast() {
-   let action = {
-      type: constants.COPY_LAST,
-   };
-   return action;
-}
+const copyLast = () => ({
+   type: constants.COPY_LAST,
+});
 
 function removeFirst() {
    let action = {

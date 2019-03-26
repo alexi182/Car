@@ -1,11 +1,7 @@
 import ContentBlock from './ContentBlock/ContentBlock';
 import './Content.scss';
-/*import * as actions from '../../actions/actions';
-import { connect } from 'react-redux';*/
-
-/*@connect( store => {
-   return store.actions;
-})*/
+import * as actions from "../../actions/actions";
+import {connect} from "react-redux";
 
 class Content extends React.Component {
    constructor(props) {
@@ -34,13 +30,13 @@ class Content extends React.Component {
 
    render() {
 
-      let {data} = this.props.data.data;
+      console.log(this.props.data);
 
       return (
           <div className="content">
              {
-                data !== undefined &&
-                data.map((item, i) =>
+                this.props.data !== undefined &&
+                this.props.data.map((item, i) =>
                  <ContentBlock
                      {...item}
                      num={i}
@@ -51,6 +47,15 @@ class Content extends React.Component {
    }
 }
 
+const mapStateToProps = state => {
+   return {
+      data: state.data,
+   };
+};
 
-export default Content
+export default connect(
+    mapStateToProps
+)(Content);
+
+
 

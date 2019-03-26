@@ -1,35 +1,64 @@
 import './ActionsBar.scss';
+import * as actions from "../../actions/actions";
+import {connect} from "react-redux";
 
 class ActionsBar extends React.Component {
 
-   copyFirst = () => {
-      this.props.copyFirst()
-   }
+  copyFirst = () => {
+    this.props.copyFirst()
+  }
 
-   copyLast = () => {
-      this.props.copyLast()
-   }
+  copyLast = () => {
+    this.props.copyLast()
+  }
 
-   render() {
+  removeFirst = () => {
+    this.props.removeFirst()
+  }
 
-      return (
-          <div className="actions">
-             <button className="action" onClick={this.copyFirst}>
-                Добавить в начало
-             </button>
-             <button className="action" onClick={this.copyLast}>
-                Добавить в конец
-             </button>
-             <button className="action" onClick={this.removeFirst}>
-                Удалить первый
-             </button>
-             <button className="action" onClick={this.removeLast}>
-                Удалить последний
-             </button>
+  removeLast = () => {
+    this.props.removeLast()
+  }
 
-          </div>
-      )
-   }
+  render() {
+
+    return (
+        <div className="actions">
+          <button className="action" onClick={this.copyFirst}>
+            Добавить в начало
+          </button>
+          <button className="action" onClick={this.copyLast}>
+            Добавить в конец
+          </button>
+          <button className="action" onClick={this.removeFirst}>
+            Удалить первый
+          </button>
+          <button className="action" onClick={this.removeLast}>
+            Удалить последний
+          </button>
+
+        </div>
+    )
+  }
 }
 
-export default ActionsBar
+const mapStateToProps = state => {
+  return {
+    data: state.data,
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    copyFirst: () => dispatch(actions.copyFirst()),
+    copyLast: () => dispatch(actions.copyLast()),
+    removeFirst: () => dispatch(actions.removeFirst()),
+    removeLast: () => dispatch(actions.removeLast())
+  };
+};
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(ActionsBar);
+

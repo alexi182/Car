@@ -27,10 +27,8 @@ const ContentBlock = (props) => {
              </div>
              <div className="content-list__description">{description}</div>
           </div>
-
        </Fragment>
    )
-
 };
 
 export default ContentBlock
