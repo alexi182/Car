@@ -1,5 +1,11 @@
 import * as constants from '../constants/actions';
 
+/*
+const init = () => ({
+   type: constants.INIT,
+});
+*/
+
 const copyFirst = () => ({
    type: constants.COPY_FIRST,
 });
@@ -37,6 +43,7 @@ function viewCard() {
 }
 
 export {
+   /*init,*/
    copyFirst,
    copyLast,
    removeFirst,

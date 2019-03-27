@@ -22,6 +22,8 @@ class ActionsBar extends React.Component {
 
   render() {
 
+    console.log(this.props.data);
+
     return (
         <div className="actions">
           <button className="action" onClick={this.copyFirst}>
@@ -44,7 +46,7 @@ class ActionsBar extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    data: state.data,
+    data: state.actions.data,
   };
 };
 

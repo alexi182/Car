@@ -5,13 +5,14 @@ export default function actionReducers(state = {data: data.data}, action) {
 
    switch (action.type) {
 
+
       case constants.COPY_FIRST: {
 
          let updatedList = [...state.data];
-         console.log(updatedList);
 
          let lastElement = updatedList.slice(updatedList.indexOf(updatedList[updatedList.length - 1]));
-         console.log(lastElement[0]);
+
+         console.log('lastElement-', lastElement);
 
          updatedList.unshift(lastElement[0]);
 
@@ -20,14 +21,14 @@ export default function actionReducers(state = {data: data.data}, action) {
 
       case constants.COPY_LAST: {
          let updatedList = [...state.data];
-         console.log(updatedList);
 
          let firstElement = updatedList.slice(updatedList.indexOf(updatedList[0]));
-         console.log(firstElement[0]);
+         // console.log(firstElement[0]);
 
          updatedList.push(firstElement[0]);
 
          return state = {...state, data: updatedList };
+
       }
 
       case constants.REMOVE_FIRST: {
@@ -41,7 +42,13 @@ export default function actionReducers(state = {data: data.data}, action) {
       case constants.REMOVE_LAST: {
          let updatedList = [...state.data];
 
-         updatedList.splice(updatedList.indexOf(updatedList[updatedList.length - 1]),1);
+         /*console.log(updatedList.indexOf(updatedList[updatedList.length - 1]));*/
+
+         let arrNum = updatedList.indexOf(updatedList[updatedList.length - 1]);
+
+         console.log(arrNum);
+
+         updatedList.splice(arrNum, 1);
 
          return state = {...state, data: updatedList };
       }

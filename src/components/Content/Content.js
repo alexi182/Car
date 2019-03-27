@@ -28,6 +28,10 @@ class Content extends React.Component {
    //    this.props.dispatch(action);
    // }
 
+   /*componentDidMount() {
+      this.props.init()
+   }
+*/
    render() {
 
       console.log(this.props.data);
@@ -35,7 +39,6 @@ class Content extends React.Component {
       return (
           <div className="content">
              {
-                this.props.data !== undefined &&
                 this.props.data.map((item, i) =>
                  <ContentBlock
                      {...item}
@@ -49,7 +52,7 @@ class Content extends React.Component {
 
 const mapStateToProps = state => {
    return {
-      data: state.data,
+      data: state.actions.data,
    };
 };
 
