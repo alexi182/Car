@@ -5,8 +5,6 @@ const ContentBlock = (props) => {
 
    let {title, attributes, description, num } = props;
 
-   console.log(props);
-
    return (
        <Fragment>
           <div className="content-list">

@@ -4,59 +4,53 @@ import {connect} from "react-redux";
 
 class ActionsBar extends React.Component {
 
-  copyFirst = () => {
-    this.props.copyFirst()
-  }
 
-  copyLast = () => {
-    this.props.copyLast()
-  }
+   render() {
 
-  removeFirst = () => {
-    this.props.removeFirst()
-  }
+      const {
+         data,
+         copyFirst,
+         copyLast ,
+         removeFirst,
+         removeLast
+      } = this.props
 
-  removeLast = () => {
-    this.props.removeLast()
-  }
+      let firstElem = data[0]
+      let lastElem = data.length-1
 
-  render() {
+      return (
+          <div className="actions">
+             <button className="action" onClick={copyFirst}>
+                Добавить в начало
+             </button>
+             <button className="action" onClick={copyLast}>
+                Добавить в конец
+             </button>
+             <button className="action" onClick={removeFirst.bind(this, firstElem)}>
+                Удалить первый
+             </button>
+             <button className="action" onClick={removeLast.bind(this, lastElem)}>
+                Удалить последний
+             </button>
 
-    console.log(this.props.data);
-
-    return (
-        <div className="actions">
-          <button className="action" onClick={this.copyFirst}>
-            Добавить в начало
-          </button>
-          <button className="action" onClick={this.copyLast}>
-            Добавить в конец
-          </button>
-          <button className="action" onClick={this.removeFirst}>
-            Удалить первый
-          </button>
-          <button className="action" onClick={this.removeLast}>
-            Удалить последний
-          </button>
-
-        </div>
-    )
-  }
+          </div>
+      )
+   }
 }
 
 const mapStateToProps = state => {
-  return {
-    data: state.actions.data,
-  };
+   return {
+      data: state.actions.data
+   };
 };
 
 const mapDispatchToProps = dispatch => {
-  return {
-    copyFirst: () => dispatch(actions.copyFirst()),
-    copyLast: () => dispatch(actions.copyLast()),
-    removeFirst: () => dispatch(actions.removeFirst()),
-    removeLast: () => dispatch(actions.removeLast())
-  };
+   return {
+      copyFirst: () => dispatch(actions.copyFirst()),
+      copyLast: () => dispatch(actions.copyLast()),
+      removeFirst: (id) => dispatch(actions.removeFirst(id)),
+      removeLast: (id) => dispatch(actions.removeLast(id))
+   };
 };
 
 export default connect(

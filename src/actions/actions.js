@@ -1,11 +1,5 @@
 import * as constants from '../constants/actions';
 
-/*
-const init = () => ({
-   type: constants.INIT,
-});
-*/
-
 const copyFirst = () => ({
    type: constants.COPY_FIRST,
 });
@@ -14,23 +8,20 @@ const copyLast = () => ({
    type: constants.COPY_LAST,
 });
 
-function removeFirst() {
-   let action = {
-      type: constants.REMOVE_FIRST,
-   };
-   return action;
-}
+const removeFirst = (id) => ({
+   type: constants.REMOVE_FIRST,
+   payload: id
+})
 
-function removeLast() {
-   let action = {
-      type: constants.REMOVE_LAST,
-   };
-   return action;
-}
+const removeLast = (id) => ( {
+   type: constants.REMOVE_LAST,
+   payload: id
+})
 
-function viewList() {
+function viewList(id) {
    let action = {
       type: constants.VIEW_LIST,
+      payload: id
    };
    return action;
 }
@@ -43,7 +34,6 @@ function viewCard() {
 }
 
 export {
-   /*init,*/
    copyFirst,
    copyLast,
    removeFirst,

@@ -34,7 +34,7 @@ export default function actionReducers(state = {data: data.data}, action) {
       case constants.REMOVE_FIRST: {
          let updatedList = [...state.data];
 
-         updatedList.splice(0,1);
+         updatedList.splice(action.payload, 1);
 
          return state = {...state, data: updatedList };
       }
@@ -42,13 +42,7 @@ export default function actionReducers(state = {data: data.data}, action) {
       case constants.REMOVE_LAST: {
          let updatedList = [...state.data];
 
-         /*console.log(updatedList.indexOf(updatedList[updatedList.length - 1]));*/
-
-         let arrNum = updatedList.indexOf(updatedList[updatedList.length - 1]);
-
-         console.log(arrNum);
-
-         updatedList.splice(arrNum, 1);
+         updatedList.splice(action.payload, 1);
 
          return state = {...state, data: updatedList };
       }
