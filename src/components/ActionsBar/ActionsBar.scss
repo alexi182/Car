@@ -2,14 +2,23 @@
    display: flex;
    flex-wrap: wrap;
    justify-content: space-between;
-}
 
-.action {
-   width: 48%;
-   background: green;
-   margin-bottom: 15px;
-   color: #ffffff;
-   padding: 10px 0;
-   text-transform: uppercase;
-   cursor: pointer;
+   &__item {
+      width: 48%;
+      background: green;
+      margin-bottom: 15px;
+      color: #ffffff;
+      padding: 10px 0;
+      text-transform: uppercase;
+      cursor: pointer;
+   }
+
+   &__view {
+
+   }
+
+   &__view-bar {
+
+   }
+
 }

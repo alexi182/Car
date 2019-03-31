@@ -1,5 +1,5 @@
-const ADD_NOTE = 'ADD_NOTE';
+const ADD_POST = 'ADD_POST';
 
 export {
-   ADD_NOTE
+   ADD_POST
 };

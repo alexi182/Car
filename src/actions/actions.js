@@ -8,36 +8,23 @@ const copyLast = () => ({
    type: constants.COPY_LAST,
 });
 
-const removeFirst = (id) => ({
-   type: constants.REMOVE_FIRST,
+const removeElement = (id) => ({
+   type: constants.REMOVE_ELEMENT,
    payload: id
 })
 
-const removeLast = (id) => ( {
-   type: constants.REMOVE_LAST,
-   payload: id
+const viewList = () => ({
+   type: constants.VIEW_LIST
 })
 
-function viewList(id) {
-   let action = {
-      type: constants.VIEW_LIST,
-      payload: id
-   };
-   return action;
-}
-
-function viewCard() {
-   let action = {
-      type: constants.VIEW_CARD,
-   };
-   return action;
-}
+const viewCard = () => ({
+   type: constants.VIEW_CARD
+})
 
 export {
    copyFirst,
    copyLast,
-   removeFirst,
-   removeLast,
+   removeElement,
    viewList,
    viewCard
 }

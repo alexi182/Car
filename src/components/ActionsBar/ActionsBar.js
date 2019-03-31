@@ -4,15 +4,15 @@ import {connect} from "react-redux";
 
 class ActionsBar extends React.Component {
 
-
    render() {
 
       const {
          data,
          copyFirst,
          copyLast ,
-         removeFirst,
-         removeLast
+         removeElement,
+         viewList,
+         viewCard
       } = this.props
 
       let firstElem = data[0]
@@ -20,18 +20,31 @@ class ActionsBar extends React.Component {
 
       return (
           <div className="actions">
-             <button className="action" onClick={copyFirst}>
+             <button className="actions__item" onClick={copyFirst}>
                 Добавить в начало
              </button>
-             <button className="action" onClick={copyLast}>
+             <button className="actions__item" onClick={copyLast}>
                 Добавить в конец
              </button>
-             <button className="action" onClick={removeFirst.bind(this, firstElem)}>
+             <button className="actions__item" onClick={removeElement.bind(this, firstElem)}>
                 Удалить первый
              </button>
-             <button className="action" onClick={removeLast.bind(this, lastElem)}>
+             <button className="actions__item" onClick={removeElement.bind(this, lastElem)}>
                 Удалить последний
              </button>
+
+             <div className="actions__view">
+                <div>Переключить вид</div>
+
+                <div className="actions__view-bar">
+                   <button className="action" onClick={viewList}>
+                      Список
+                   </button>
+                   <button className="actions__view-item" onClick={viewCard}>
+                      Карточки
+                   </button>
+                </div>
+             </div>actions
 
           </div>
       )
@@ -40,7 +53,9 @@ class ActionsBar extends React.Component {
 
 const mapStateToProps = state => {
    return {
-      data: state.actions.data
+      data: state.actions.data,
+      viewList: state.actions.viewList,
+      viewCard: state.actions.viewCard
    };
 };
 
@@ -48,8 +63,9 @@ const mapDispatchToProps = dispatch => {
    return {
       copyFirst: () => dispatch(actions.copyFirst()),
       copyLast: () => dispatch(actions.copyLast()),
-      removeFirst: (id) => dispatch(actions.removeFirst(id)),
-      removeLast: (id) => dispatch(actions.removeLast(id))
+      removeElement: (id) => dispatch(actions.removeElement(id)),
+      viewList: () => dispatch(actions.viewList()),
+      viewCard: () => dispatch(actions.viewCard())
    };
 };
 

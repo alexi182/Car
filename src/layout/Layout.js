@@ -8,9 +8,7 @@ class Layout extends React.Component {
 
     return (
         <div className="container">
-
           <ActionsBar />
-
           <Content />
 
         </div>

@@ -1,29 +1,20 @@
 import ContentBlock from './ContentBlock/ContentBlock';
+import ContentBlockCard from './ContentBlockCard/ContentBlockCard';
 import './Content.scss';
 import {connect} from "react-redux";
 
 class Content extends React.Component {
 
-   // handleChange(e) {
-   //    //    this.setState({
-   //    //       text: e.target.value,
-   //    //       count: this.count - e.target.value.length
-   //    //    });
-   //    // }
-
    render() {
-
-      console.log(this.props.data);
-
       return (
           <div className="content">
              {
                 this.props.data.map((item, i) =>
-                 <ContentBlock
-                     {...item}
-                     num={i}
-                     key={i} />
-             )}
+                    { if (this.props.viewList) {
+                       return  <ContentBlock {...item} num={i} key={i} />
+                    } else return  <ContentBlockCard {...item} num={i} key={i} />
+                    }
+                )}
           </div>
       );
    }
@@ -32,11 +23,13 @@ class Content extends React.Component {
 const mapStateToProps = state => {
    return {
       data: state.actions.data,
+      viewList: state.actions.viewList,
+      viewCard: state.actions.viewCard,
    };
 };
 
 export default connect(
-    mapStateToProps
+    mapStateToProps,
 )(Content);
 
 
